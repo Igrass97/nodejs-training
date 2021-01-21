@@ -1,0 +1,30 @@
+<%- include('includes/head.ejs') %>
+
+<body>
+  <%- include('includes/navigation.ejs') %>
+    <main>
+      <% if (products.length> 0) { %>
+        <h1>Product list</h1>
+        <% products.forEach(p=> { %>
+          <div class="product">
+            <h2>
+              <%= p.name %>
+            </h2>
+            <div class="product__footer">
+              <p>
+                $<%= p.price %>
+              </p>
+              <p>
+                Stock: <%= p.stock %>
+              </p>
+            </div>
+            <button type="submit">Add to cart</button>
+          </div>
+          <% }) %>
+            <% } else { %>
+              <h1>No products found</h1>
+              <% } %>
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+<%- include('includes/head.ejs') %>
+
+<body>
+  <%- include('includes/navigation.ejs') %>
+  <main>
+    <h1>Add a new product</h1>
+    <form method="POST"
+          action="/add-product">
+      <input type="text"
+             name="name"
+             placeholder="Product name">
+      <input type="text"
+             name="price"
+             placeholder="Price">
+      <input type="text"
+             name="stock"
+             placeholder="Stock">
+      <button type="submit">ADD</button>
+    </form>
+  </main>
+</body>
+
+</html>

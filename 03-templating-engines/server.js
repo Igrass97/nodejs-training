@@ -11,14 +11,18 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: false })); // parses bodies sent through a form.
 
 // Pug
-app.set('view engine', 'pug');
-app.set('views', 'pug-views');
+// app.set('view engine', 'pug');
+// app.set('views', 'pug-views');
+
+// EJS
+app.set('view engine', 'ejs');
+app.set('views', 'ejs-views');
 
 app.use(adminRouter);
 app.use(shopRouter);
 
 app.use((req, res, next) => {
-  res.status(404).render('404', { docTitle: '404' });
+  res.status(404).render('404', { docTitle: '404', path: '404' });
 });
 
 app.listen(8000);
