@@ -1,0 +1,14 @@
+extends main-layout.pug
+
+block content
+  if products.length > 0
+    h1 Product list
+    each p in products
+      .product
+        h2 #{p.name}
+        .product__footer
+          p $#{p.price}
+          p In stock: #{p.stock}
+        button(type="submit") Add to cart
+  else
+    h1 No products available

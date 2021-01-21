@@ -3,7 +3,7 @@
   They have an HTMLish templae (it looks like html but it has some extra features).
   Templating engines replaces placeholders and snippets with the data that we provide.
   This all happens on the server. The result is an HTML file that is sent to the client.
-  Pug is registered as an engine by default. If we want to register an engine which is not in the list by default, we need to use `app.engine('engine-name', expressHbs())`.
+
 # Set global configuration values to our app
   `app.set(key, value)` is used to store information.
   `app.get(key)` is used to retrieve that information.
@@ -26,12 +26,3 @@ We can pass a second parameter `res.render('viewname', data)` in order to interp
   A "primitive" way to store data and share it between users and requests is to use an `"in-memory" database` (variable).
   For now, we'll use this approach before we learn how to connect with `databases` and `models`.
   This is not going to be used in production.
-
-# Pug
-  Layouts are "skeletons" for our views. We can extend these layouts by using blocks.
-  Placeholders in layout: `block "blockName"`
-## Extending layouts from other views
-    extends layoutPath
-    block "blockName"
-      blockContent
-    
