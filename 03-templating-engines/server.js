@@ -9,6 +9,8 @@ const app = express();
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: false })); // parses bodies sent through a form.
+
+// Pug
 app.set('view engine', 'pug');
 app.set('views', 'pug-views');
 
@@ -16,7 +18,7 @@ app.use(adminRouter);
 app.use(shopRouter);
 
 app.use((req, res, next) => {
-  res.status(404).sendFile(path.join(__dirname, 'views', '404.html'));
+  res.status(404).render('404', { docTitle: '404' });
 });
 
 app.listen(8000);
@@ -27,6 +29,8 @@ app.listen(8000);
     They have an HTMLish templae (it looks like html but it has some extra features).
     Templating engines replaces placeholders and snippets with the data that we provide.
     This all happens on the server. The result is an HTML file that is sent to the client.
+    Pug is registered as an engine by default. If we want to register an engine which is not in the list by default,
+    we need to use app.engine('engine-name', expressHbs()).
 
   Set global configuration values to our app
     app.set(key, value) is used to store information.
@@ -49,4 +53,12 @@ app.listen(8000);
     A "primitive" way to store data and share it between users and requests is to use an "in-memory" database (variable).
     For now, we'll use this approach before we learn how to connect with databases and models.
     This is not going to be used in production.
+
+  Pug
+    Layouts are "skeletons" for our views. We can extend these layouts by using blocks.
+    Placeholders in layout: block "blockName"
+    Extending layouts from other views
+      extends layoutPath
+      block "blockName"
+        blockContent
 */

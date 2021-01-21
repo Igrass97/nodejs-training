@@ -12,7 +12,7 @@ router.post('/add-product', (req, res, next) => {
 });
 
 router.get('/add-product', (req, res, next) => {
-  res.render('admin', { docTitle: 'Add a new product' });
+  res.render('admin', { docTitle: 'Add a new product', path: '/add-product' });
 });
 
 module.exports = {

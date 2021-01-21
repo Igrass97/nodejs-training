@@ -29,8 +29,12 @@ a:link, a:active, a:visited {
   font-size: 1.2rem;
 }
 
-a:hover {
+a:not(.active):hover {
   background-color: #51c0a6;
+}
+
+a.active {
+  color: #11429e;
 }
 
 main {
