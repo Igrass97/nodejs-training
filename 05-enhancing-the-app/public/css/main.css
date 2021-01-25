@@ -1,0 +1,181 @@
+/* HORRIBLE CSS WARNING: Styling is done in a pretty bad and fast way, this is a nodejs training */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+header {
+  height: 68px;
+  background-color:#53a290;
+}
+
+nav.desktop-nav {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+}
+
+.shop-nav,
+.admin-nav {
+  display: none;
+}
+
+a:link, a:active, a:visited {
+  text-decoration: none;
+  color: black;
+  color: #fff8f8;
+  font-size: 1.2rem;
+}
+
+a:not(.active):hover {
+  background-color: #51c0a6;
+}
+
+a.active {
+  color: #11429e;
+}
+
+main {
+  padding: 2rem;
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+input {
+  border: none;
+  background-color: #b1f7e6;
+  padding: .5rem;
+  font-size: 1.1rem;
+  outline: none;
+  display: block;
+  margin: .5rem 0;
+  width: 100%;
+  border-radius: 3px;
+}
+
+button {
+  border: none;
+  padding: .5rem 2rem;
+  border-radius: 3px;
+  background-color: #53a290;
+  cursor: pointer;
+  width: 100%;
+  font-size: 1rem;
+}
+
+button:hover {
+  background-color: #6acab4;
+}
+
+.products {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.product {
+  text-align: left;
+  margin: 2rem auto;
+  padding: 1rem 1rem 1rem 1rem;
+  width: 250px;
+  height: 350px;
+  border-radius: 3px;
+  box-shadow: 1px 1px 4px -1px black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+img {
+  padding: 1rem 0;
+  width: 218px;
+  height: 163px;
+}
+
+.product h2 {
+  font-size: 1.5rem;
+  font-weight: normal;
+  text-align: center;
+}
+
+.product__price {
+  font-weight: bold;
+}
+
+.product__stock {
+  font-size: .8rem;
+}
+
+.product__info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: .8rem;
+}
+
+.menu-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #53a290;
+}
+
+.menu-container nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 3rem;
+}
+
+.menu-container a {
+  padding: 1rem;
+  font-size: 1.5rem;
+}
+
+.close-button {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: #FFF;
+}
+
+@media screen and (min-width: 720px) {
+  main {
+    width: 50%;
+    margin: 0 auto;
+  }
+  
+  form {
+    width: 50%;
+    margin: 0 auto;
+  }
+
+  .shop-nav,
+  .admin-nav {
+    display: flex;
+    align-items: center;
+  }
+
+  .mobile-nav {
+    display: none;
+  }
+
+  a:link, a:active, a:visited {
+    padding: 1rem;
+    height: 1.5rem;
+    display: flex;
+    align-items: center;
+  }
+}

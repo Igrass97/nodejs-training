@@ -1,0 +1,17 @@
+extends ../main-layout.pug
+
+block content
+  if products.length > 0
+    h1 Featured products
+    .products
+      each p in products
+        .product
+          h2 #{p.name}
+          img(src=`${p.imageURL}`)
+          .product__footer
+            .product__info
+              p.product__price $#{p.price}
+              p.product__stock In stock: #{p.stock}
+            button(type="submit") Add to cart
+  else
+    h1 No products available
