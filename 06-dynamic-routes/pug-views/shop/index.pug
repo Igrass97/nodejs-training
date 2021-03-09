@@ -1,0 +1,21 @@
+extends ../main-layout.pug
+
+block content
+  if products.length > 0
+    h1 Featured products
+    .products
+      each p in products
+        .product
+          h2 #{p.name}
+          a.details(href=`/products/${p.id}`) Details
+          img(src=`${p.imageURL}`)
+          .product__footer
+            .product__info
+              p.product__price $#{p.price}
+              p.product__stock In stock: #{p.stock}
+            form(action="/cart", method="POST")
+              button(type="submit") Add to cart
+              input(type="hidden", value=`${p.id}`, name="id")
+
+  else
+    h1 No products available
