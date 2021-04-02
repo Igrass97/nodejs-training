@@ -1,0 +1,15 @@
+extends ../main-layout.pug
+
+block content
+  h1 Add a new product
+  form(action=`${editing ? `/admin/edit-product/${p.id}` : '/admin/add-product'}`, method="POST")
+    input(type="text", name="name", placeholder="Product name", value=`${p.name}`)
+    input(type="text", name="imageURL", placeholder="Image URL", value=`${p.imageURL}`)
+    input(type="number", name="price", placeholder="Price", value=`${p.price}`)
+    input(type="number", name="stock", placeholder="Stock", value=`${p.stock}`)
+    textarea(name="description", rows="5", placeholder="Description") #{p.description}
+    if editing
+      button(type="submit") Edit
+    else 
+      button(type="submit") Add
+

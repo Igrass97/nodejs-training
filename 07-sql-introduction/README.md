@@ -67,3 +67,42 @@ Easy with NoSQL databases
 Improve server capacity / hardware to manage larger databases
 This is easy with SQL databases
 Easy with NoSQL databases
+
+# MySQL
+
+To connect to the database you can use single connections for each query (not recommened) or use a conection pool.
+const mysql = require('mysql2')
+
+    const pool = mysql.createPool({
+      host: 'localhost',
+      username: 'root',
+      database: 'nodejs',
+      password: '159753',
+    })
+
+Table column attributes:
+PK: Primary key
+NN: Not null
+UQ: Unique
+BIN: Binary data
+UN: Unsigned (no negative values)
+AI: Auto incremental
+
+## Useful queries
+
+    db.execute('SELECT * FROM products')
+      .then((result) => {
+        console.log(result[0])
+        // 0: rows
+        // 1: metadata
+      })
+      .catch(console.log)
+
+    db.execute('SELECT * FROM PRODUCTS WHERE id = ?', [id])
+
+    db.execute(
+      'INSERT INTO products (name, price, stock, imageURL, description) VALUES (?, ?, ?, ?, ?)',
+      [this.name, this.price, this.stock, this.imageURL, this.description]
+    )
+
+)
