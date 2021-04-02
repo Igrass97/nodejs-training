@@ -1,0 +1,12 @@
+extends ../main-layout.pug
+
+block content
+  h1 #{product.name} details
+  .p-details
+    img(src=`${product.imageURL}`)
+    p.product__price $#{product.price}
+    p.product__stock In stock: #{product.stock}
+    p.product__description #{product.description}
+    form(action="/cart", method="POST")
+      button(type="submit") Add to cart
+      input(type="hidden", value=`${product.id}`, name="id")
